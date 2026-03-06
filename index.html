@@ -1,0 +1,832 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <title>Lydia’s Digital World</title>  
+<!-- Google Fonts -->  
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat&display=swap" rel="stylesheet">    <style>  
+  :root {  
+  --bg: #ffffff;  
+  --accent: #ff69b4;  
+  --soft: #fff0f5;  
+}  
+   
+    
+    
+    /* ===== RESET ===== */  
+    * {  
+      margin: 0;  
+      padding: 0;  
+      box-sizing: border-box;  
+    }  
+  
+    body {  
+      font-family: 'Montserrat', serif;  
+      background: #fff7fb;  
+      color: #333;  
+      line-height: 1.6;  
+    }  
+      
+    body.dark {  
+  background: #121212;  
+  color: #f1f1f1;  
+}  
+  
+    section {  
+      padding: 60px 20px;  
+      max-width: 1100px;  
+      margin: auto;  
+    }  
+      
+      section {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+  
+    h1, h2 {  
+      font-family: 'Libre Baskerville', serif;  
+    }  
+  
+    h1, h2, h3 {  
+      margin-bottom: 30px;  
+    }  
+  
+    /* ===== WELCOME ===== */  
+    .welcome {  
+      height: 100vh;  
+      background: linear-gradient(to bottom, #ffe6f0, #ffffff);  
+      display: flex;  
+      flex-direction: column;  
+      justify-content: center;  
+      align-items: center;  
+      text-align: center;  
+      gap: 2px;  
+    }  
+  
+    .welcome h1 {  
+      color: #ff69b4;  
+      font-size: 47px;  
+      margin-bottom: 30px;  
+      
+    }  
+     
+    /* ===== HERO SECTION ===== */  
+    .hero {  
+      display: flex;  
+      align-items: center;  
+      justify-content: space-between;  
+      gap: 20px;  
+      flex-wrap: wrap;  
+    }  
+  
+    .hero-text {  
+      flex: 1;  
+    }  
+  
+    .hero-text h1 {  
+      font-size: 50px;  
+    }  
+  
+    .hero-text p {  
+      font-size: 25px;  
+    }  
+  
+    .hero-img {  
+      flex: 1;  
+      display: flex;  
+      justify-content: center;  
+    }  
+  
+    .hero-img img {  
+      width: 500px;  
+      border-radius: 20px;  
+      justify-content: center;  
+    }  
+  
+    /* ===== ABOUT ===== */  
+    .about p {  
+      margin-bottom: 30px;  
+     
+    }  
+  
+    /* ===== BUCKET LIST ===== */  
+      
+    .bucket-list li {  
+      margin-left: 50px;  
+      margin-bottom: 8px;  
+    }  
+  
+#about p {  
+      max-width: 800px;  
+      line-height: 1.6;  
+      font-size: 18px;  
+    }  
+      
+    .hobbies {  
+  margin-top: 15px;  
+  margin-left: 50px;  
+  font-size: 10px;  
+}  
+  
+.hobbies li {  
+  margin-bottom: 18px;  
+  padding-left: 6px;  
+}  
+  
+    .whisper {  
+      font-size: 10px;  
+      color: #666;  
+      margin-top:10px;  
+      font-style: italic;  
+      margin-left: 14px;  
+    }  
+  
+    /* BUCKET LIST */  
+      
+    #bucket {  
+      background: #fdf2f9;  
+      border-radius: 30px;  
+      margin: 40px;  
+      font-size: 15px;  
+    }  
+  
+    ul li {  
+      margin-bottom: 10px;  
+    }  
+  
+    ul li::marker {  
+      color: #ff69b4;  
+      }  
+}  
+        
+    /* ===== CENTER WRAPPER (IMPORTANT) ===== */  
+    .center-wrapper {  
+      display: flex;  
+      justify-content: center;  
+      width: 100%;  
+    }  
+  
+    /* ===== ANNABELLE ALBUM ===== */  
+    .bestie-album {  
+      display: flex;  
+      gap: 16px;  
+      overflow-x: auto;  
+      padding: 20px 0;  
+      
+    }  
+  
+    .bestie-album img {  
+      width: 270px;  
+      height: 470px;  
+      object-fit: cover;  
+      border-radius: 16px;  
+      flex-shrink: 0;  
+      transition: transform 0.3s ease;  
+    }  
+  
+    .bestie-album img:hover {  
+      transform: scale(1.05);  
+    }  
+  
+           
+        
+    
+  
+    /* ===== GENERAL ALBUM ===== */  
+    .album {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+      gap: 20px;  
+    }  
+  
+    .album img {  
+      width: 100%;  
+      border-radius: 16px;  
+      width: 100%;  
+      transition: transform 0.4s ease;  
+      background: rgba(0,0,0,0.45);  
+    }  
+      
+        
+        
+    }  
+  
+    /* ===== ANIMATION ===== */  
+    section {  
+      animation: fadeUp 1s ease;  
+    }  
+  
+    @keyframes fadeUp {  
+      from {  
+        opacity: 0;  
+        transform: translateY(30px);  
+      }  
+      to {  
+        opacity: 1;  
+        transform: translateY(0);  
+      }  
+    }  
+    /* NAV */  
+    nav {  
+      position: sticky;  
+      top: 0;  
+      background: white;  
+      padding: 15px;  
+      font-size: 20px;  
+      text-align: center;  
+      border-bottom: 1px solid #eee;  
+    }  
+  
+    nav a  {  
+      margin: 0 15px;  
+      text-decoration: none;  
+      color: #222;  
+      font-weight: bold;  
+    }  
+  
+    nav a:hover {  
+      color: #ff69b4;  
+    }  
+  
+  
+    /* ===== MOBILE FIX ===== */  
+    @media (max-width: 768px) {  
+      .hero {  
+        flex-direction: column;  
+        text-align: center;  
+      }  
+  
+      .whisper {  
+        text-align: center;  
+      }  
+    }  
+    .heart-toggle {  
+  position: fixed;  
+  top: 20px;  
+  right: 20px;  
+  font-size: 28px;  
+  cursor: pointer;  
+  transition: transform 0.3s ease;  
+  user-select: none;  
+}  
+  
+.heart-toggle.active {  
+  color: #e2558f;  
+  transform: scale(1.3);  
+}  
+.music-player {  
+  text-align: center;  
+  margin: 40px auto;  
+  background: white;  
+  padding: 20px;  
+  max-width: 300px;  
+  border-radius: 20px;  
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);  
+}  
+  
+.music-player p {  
+  margin-bottom: 10px;  
+  font-size: 14px;  
+  color: #b85c8a;  
+}  
+  
+.hero-wrapper {  
+  min-height: 100vh;              /* big first view */  
+  display: flex;  
+  flex-direction: column;  
+  justify-content: center;  
+}  
+  
+body.dark .welcome,  
+body.dark .hero,  
+body.dark section {  
+  background: #121212;  
+  color: #f1f1f1;  
+}  
+  
+body.dark .album-item,  
+body.dark li {  
+  background: #1e1e1e;  
+}  
+  
+  .moon-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.moon-toggle:hover {
+  transform: scale(1.2);
+}
+
+body.dark nav {
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+body.dark nav a {
+  color: #f1f1f1;
+}
+
+body.dark nav a:hover {
+  color: #ff69b4;
+}
+
+body.dark #bucket {
+  background: #1e1e1e;
+}
+
+body.dark #bucket h2 {
+  color: #ffb6d9;
+}
+}
+
+body.dark .heart-toggle{
+  color: #ff8fcf;
+}
+
+.hobby-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.hobby-card {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.hobby-card.active {
+  color: #e2558f;
+}
+
+.progress-box {
+  width: 80%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.progress-box p {
+  margin-bottom: 10px;
+  font-size: 100px;
+}
+
+.progress {
+  width: 100%;
+  height: 100px;
+  background: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  border-radius: 80px;
+  background: #e8a0bf;
+  transition: width 0.1s ease;
+}
+
+body.dark .progress-bar {
+  background: #c26ba3;
+}
+
+body.dark #bucket {
+  background: #1e1e1e;
+}
+
+body.dark #bucket h2 {
+  color: #ffb6d9;
+}
+}
+
+/* Individual skill levels */
+
+.progress-bar.html {
+  width: 60%;
+}
+
+.progress-bar.css {
+  width: 40%;
+}
+
+.progress-bar.js {
+  width: 70%;
+}
+#skills {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.progress-box {
+  width: 80%;
+  margin: 25px auto;
+  text-align: left;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 30px;
+}
+
+.progress {
+  width: 100%;
+  height: 30px;
+  background: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: #e8a0bf;
+  border-radius: 20px;
+  transition: width 0.1s ease;
+}
+
+body.dark .progress-bar {
+  background: #c26ba3;
+}
+body.dark .hobby-card {
+  background: #2a2a2a;
+  color: white;
+}
+
+
+
+.bounce-arrow {
+  display: inline-block;
+  margin-left: 10px;
+  
+  animation: bounceRight 1s infinite;
+  
+}
+
+body.dark .bounce-arrow {
+  color: #ff8fcf;
+}
+
+@keyframes bounceRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+ }
+  .bounce-arrow {
+  text-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
+}
+.sibling-spotlight {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.sibling-spotlight img {
+  width: 350px;
+  height: 700px;
+  object-fit: cover;
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+
+.sibling-spotlight img:hover {
+  transform: scale(1.05);
+}
+
+.sibling-caption {
+  margin-top: 12px;
+  font-size: 14px;
+  font-family: 'Times new roman', serif;  
+  font-style: italics;
+  opacity: 0.85;
+}
+.small-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+body.dark .sibling-caption {
+  color: #f1f1f1;
+}
+
+body.dark .sibling-spotlight img {
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+.bestie-desc {
+  font-size: 15px;
+}
+.project-subtitle {
+  font-size: 20px;
+
+}
+.about-title{
+  font-size: 34px;
+}
+</style>  
+
+<script>  
+  const fades = document.querySelectorAll('.fade');  
+  
+  const observer = new IntersectionObserver(entries => {  
+    entries.forEach(entry => {  
+      if (entry.isIntersecting) {  
+        entry.target.classList.add('show');  
+      }  
+    });  
+  }, { threshold: 0.2 });  
+  
+  fades.forEach(fade => observer.observe(fade));  
+    
+  function setTheme(theme) {  
+    if (theme === 'pink') {  
+      document.documentElement.style.setProperty('--accent', '#ff69b4');  
+      document.documentElement.style.setProperty('--soft', '#fff0f5');  
+    }  
+    if (theme === 'lavender') {  
+      document.documentElement.style.setProperty('--accent', '#a78bfa');  
+      document.documentElement.style.setProperty('--soft', '#f3e8ff');  
+    }  
+    if (theme === 'mint') {  
+      document.documentElement.style.setProperty('--accent', '#34d399');  
+      document.documentElement.style.setProperty('--soft', '#ecfdf5');  
+    }  
+  }  
+</script>  <script>  
+const toggle = document.getElementById("themeToggle");  
+  
+toggle.addEventListener("click", function() {  
+  document.body.classList.toggle("dark");  
+  
+  if (document.body.classList.contains("dark")) {  
+    toggle.textContent = "☀️";  
+  } else {  
+    toggle.textContent = "🌙";  
+  }  
+});  
+
+
+}
+</script>    
+</head>  <body>  
+<nav class="navbar">  
+<a href="#intro">Intro</a><button onclick="setTheme('pink')">🌸</button>  
+    <a href="#about">About</a><button onclick="setTheme('lavender')">💜</button>  
+    <a href="#bucket">Bucket</a><button onclick="setTheme('mint')">🍃</button>  
+    <a href="#album">Album</a><button onclick="setTheme('flower')">🌷</button>  
+  <a href="novels.html">Novels</a>  
+  
+  
+</nav>
+    <!-- WELCOME -->   
+ <section class= class="welcome">  
+  <div class="welcome"
+ id="intro">  
+ 
+    <h1>Welcome to my little digital world 🌸</h1>  
+  
+<p class="project-subtitle">My first project🤗</p>  
+    <p class="project-subtitle"> Mi primer proyecto 😉. </p>  
+  </section>
+  <!-- HERO (intro + image) comes AFTER -->  
+<section class="hero">  
+  <div class="hero-text">  
+<h1>
+  I’m Lydiaa 
+  <span class="bounce-arrow">➜</span>
+</h1> 
+    <p>just a normal teenager… or maybe not😙.</p>  
+  </div>    
+<div class="hero-img">  
+    <img src="img7.jpg" alt="Lydia">  
+  </div>  
+</section>    <div class="heart-toggle" onclick="toggleHeart()">  ♡  
+
+</div>   
+ <!-- HERO -->   
+ <!-- ABOUT ME -->    
+<section class="about">  
+  <section id="about" >  
+  <h2 class="about-title">ABOUT ME🐹</h2>  
+    <p>  
+    I’m 5’0, fun, introverted, different and silly.  
+      I love photography ✌and art, but I’m a science student 🙂  
+      #future civil engineer 🔧🏗️😜.  
+    </p>  <p>  
+  Note: i can be so unpredictable😭 and indecisive but yhhh thats what makes me, ME!😚 .
+ </p>  
+   
+<p>  
+  I have a pretty cool dude of a best friend and her name is Annabellee.  
+  She’s cool and smart🧠, like 99.9% smart🤓, and I love herrr👁👅👁.  
+</p>  
+
+    
+ <p>   
+ También, algo sobre mi: aprendo español y quiero ser multilingüe...YYYY, bienvenido a mi sito web 😊❤  
+ era uno de mis sueños más inalcanzables,¡¡ ahora lo estoy logrando¡¡😭🔥  
+ ..Ahora me siento como una reinaaa 👑😁.  
+ </p>  
+   
+<div class="whisper">I make novels too… shh🤫</div>  
+
+   <p>   
+<h3>MIS HOBBIES—MY HOBBIES🌺</h3>
+<div class="hobby-cards">
+<div class="hobby-card" onclick="toggleMiniHeart(this)">♡ Photography 📸</div>    
+<div class="hobby-card"  onclick="toggleMiniHeart(this)">♡ Art & sketching 🎨</div>    
+<div class="hobby-card"  onclick="toggleMiniHeart(this)">♡ Reading novels 😎</div>    
+<div class="hobby-card"  onclick="toggleMiniHeart(this)">♡ Listening to music 🎧 majorly Afrobeats 🙃</div>    
+<div class="hobby-card"  onclick="toggleMiniHeart(this)">♡ Learning new things (coding now 👀)</div>    
+<div class="hobby-card"  onclick="toggleMiniHeart(this)">♡ knitting👯</div>    
+<div class="hobby-card"  onclick="toggleMiniHeart(this)">♡ having funn😛</div>    
+<div class="hobby-card"  onclick="toggleMiniHeart(this)">♡ sleeping 🙂</div>    
+</div>    </p>  
+<div class="heart-toggle" onclick="toggleHeart()">♡</div>    
+<div class="heart-toggle" onclick="toggleHeart()">  ♡
+
+</div>  
+  </section>  
+
+   <section>  
+   <h2>What I’m Learning 🌱</h2>
+
+  <div class="progress-box">
+    <div class="progress-header">
+      <span>Writing Novels ❤️</span>
+      <span class="percent">60%</span>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" data-width="60%"></div>
+    </div>
+  </div>
+
+  <div class="progress-box">
+    <div class="progress-header">
+      <span>Coding ❤️</span>
+      <span class="percent">40%</span>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" data-width="40%"></div>
+    </div>
+  </div>
+
+  <div class="progress-box">
+    <div class="progress-header">
+      <span>Photographyy ❤️</span>
+      <span class="percent">70%</span>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" data-width="70%"></div>
+    </div>
+  </div>
+
+</section>
+  
+ <!-- BUCKET LIST -->    <section>  
+  <section id="bucket">  
+    <h2>BUCKET LIST ✨</h2>  
+    <ul class="bucket-list">  
+      <li>Build my own website ✔</li>  
+      <li>Publish a novel</li>  
+      <li>Travel the world😊, with my camera🎥</li>  
+      <li>Be multilinguallll </li>  
+      <li>Become a civil engineer</li>  
+    </ul>  
+  
+  </section>    
+<!-- ANNABELLE ALBUM --> 
+   <section>  
+    <h2>ANNABELLEEE💓</h2>  
+    <p class="bestie-desc">One of my Fav person in d worlddd🙈💟</p>  
+<div class="center-wrapper">  
+  <div class="bestie-album">  
+    <img src="img15.jpg">  
+    <img src="img10.jpg">  
+    <img src="img8.jpg">  
+    <img src="img9.jpg">  
+    <img src="img16.jpg">  
+    <img src="img27.jpg">  
+    <img src="img28.jpg">  
+  </div>  
+</div>
+<!-- TREA TREA -->
+<section id="trea">
+  <h2>TREA TREAAA 💖</h2>
+  <p class="bestie-desc">Then there's my one and only Trea Trea 🤭🤭  
+  Girl is so caring towards everyone, I love herrr 💕</p>
+
+  <div class="center-wrapper">
+    <div class="bestie-album">
+      <img src="img31.jpg">
+      <img src="img30.jpg">
+    <img src="img42.jpg">
+    <img src="img29.jpg">
+    <img src="img22.jpg">
+  
+  
+    </div>
+  </div>
+</section>
+
+
+<section>
+  
+<section>
+  <h2>MIS HERMANAS—MY SIBLING 🌻</h2>
+  
+
+  <div class="sibling-spotlight">
+    <img src="img11.jpg" alt="My sibling">
+    <p class="sibling-caption">We are a bundle of chaos 😭❤❤</p>
+  </div>
+</section>
+  
+</section>
+  
+  
+    
+ <!-- ALBUM -->   
+ <section>  
+  <section id="album">  
+    <h2>MY ALBUM📸💝</h2>  
+    <p> And y'all i present you meeeeee👅</p>  <div class="album">  
+  <img src="img1.jpg">  
+  <img src="img20.jpg">  
+  <img src="img5.jpg">  
+  <img src="img2.jpg">  
+  <img src="img13.jpg">  
+  <img src="img41.jpg">  
+  <img src="img14.jpg">  
+  <img src="img6.jpg">  
+  <img src="img14.jpg">  
+  <img src="img4.jpg">  
+  <img src="img3.jpg">  
+  <img src="img25.jpg">  
+  
+  
+ 
+</div>
+
+  </section>
+   <div class="moon-toggle" onclick="toggleDark()">🌙
+</div>
+  <script>  
+function toggleHeart() {  
+  const heart = document.querySelector(".heart-toggle");  
+  heart.textContent = heart.textContent === "♡" ? "❤" : "♡";  
+}  
+  
+function toggleMiniHeart(el) {  
+  el.textContent = el.textContent.startsWith("💗")  
+    ? "♡" + el.textContent.slice(2)  
+    : "💗" + el.textContent.slice(1);  
+}  
+  
+  
+    
+</script>  
+<script>
+function toggleDark() {
+  document.body.classList.toggle("dark");
+
+  const moon = document.querySelector(".moon-toggle");
+
+  if (document.body.classList.contains("dark")) {
+    moon.textContent = "☀️";
+  } else {
+    moon.textContent = "🌙";
+  }
+}
+</script>
+
+<script>
+window.addEventListener("load", function() {
+  const bars = document.querySelectorAll(".progress-bar");
+
+  bars.forEach(bar => {
+    const width = bar.getAttribute("data-width");
+    setTimeout(() => {
+      bar.style.width = width;
+    }, 500);
+  });
+});
+</script>
+  </body>  
+</html>  
